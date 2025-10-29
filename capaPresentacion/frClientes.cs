@@ -1,8 +1,8 @@
 namespace capaPresentacion
 {
-    public partial class Form1 : Form
+    public partial class frClientes : Form
     {
-        public Form1()
+        public frClientes()
         {
             InitializeComponent();
         }
