@@ -111,6 +111,7 @@
             linkFoto.TabIndex = 7;
             linkFoto.TabStop = true;
             linkFoto.Text = "Selecionar";
+            linkFoto.LinkClicked += linkFoto_LinkClicked;
             // 
             // picFoto
             // 
@@ -133,6 +134,7 @@
             btnNuevo.TabIndex = 9;
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = true;
+            btnNuevo.Click += btnNuevo_Click;
             // 
             // btnEliminar
             // 
@@ -170,7 +172,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "frClientes";
-            Text = "Form1";
+            Text = "Clientes";
             ((System.ComponentModel.ISupportInitialize)txtId).EndInit();
             ((System.ComponentModel.ISupportInitialize)picFoto).EndInit();
             ResumeLayout(false);
