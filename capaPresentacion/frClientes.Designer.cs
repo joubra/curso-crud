@@ -41,8 +41,10 @@
             btnNuevo = new Button();
             btnEliminar = new Button();
             btnGuardar = new Button();
+            dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)txtId).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picFoto).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -119,6 +121,7 @@
             picFoto.Location = new Point(153, 231);
             picFoto.Name = "picFoto";
             picFoto.Size = new Size(150, 163);
+            picFoto.SizeMode = PictureBoxSizeMode.StretchImage;
             picFoto.TabIndex = 8;
             picFoto.TabStop = false;
             // 
@@ -144,6 +147,7 @@
             btnEliminar.TabIndex = 10;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnGuardar
             // 
@@ -153,12 +157,23 @@
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.Click += btnGuardar_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(575, 37);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(468, 262);
+            dataGridView1.TabIndex = 12;
             // 
             // frClientes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1144, 450);
+            Controls.Add(dataGridView1);
             Controls.Add(btnGuardar);
             Controls.Add(btnEliminar);
             Controls.Add(btnNuevo);
@@ -175,6 +190,7 @@
             Text = "Clientes";
             ((System.ComponentModel.ISupportInitialize)txtId).EndInit();
             ((System.ComponentModel.ISupportInitialize)picFoto).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -194,5 +210,6 @@
         private Button btnNuevo;
         private Button btnEliminar;
         private Button btnGuardar;
+        private DataGridView dataGridView1;
     }
 }
