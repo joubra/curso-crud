@@ -45,7 +45,16 @@ namespace capaPresentacion
             cEClientes.foto = picFoto.ImageLocation;
             resul = cNCliente.validarDatos(cEClientes);
             if (!resul) return;
-            cNCliente.crearCliente(cEClientes);
+
+            if (cEClientes.Id == 0)
+            {
+                cNCliente.crearCliente(cEClientes);
+            }
+            else
+            {
+                cNCliente.editarCliente(cEClientes);
+            }
+           
             MessageBox.Show("Cliente guardado con exito");
             CargarDato();
 
@@ -53,10 +62,12 @@ namespace capaPresentacion
 
 
         }
+        
 
         public void btnEliminar_Click(object sender, EventArgs e)
         {
-            cNCliente.Pruebamysqul();
+           cNCliente.eliminarCliente(new CEClientes() { Id = Convert.ToInt32(txtId.Value) });
+            CargarDato();
         }
 
         private void frClientes_Load(object sender, EventArgs e)
@@ -71,6 +82,7 @@ namespace capaPresentacion
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            txtId.Value = Convert.ToInt32(dataGridView1.CurrentRow.Cells["Id"].Value);
             txtNombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
             txtApellido.Text = dataGridView1.CurrentRow.Cells["Apellido"].Value.ToString();
             picFoto.Load(dataGridView1.CurrentRow.Cells["Foto"].Value.ToString());

@@ -34,15 +34,27 @@ namespace capaDatos
 
 
         }
-        public void Editar(CECliente cE)
+        public void Editar(CEClientes cE)
         {
-            MySqlConnection mySqlConnection = new MySqlConnection(CadenaConexion);
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
             mySqlConnection.Open();
-            string Query = "UPDATE `clientes` SET `nombre`='" + cE.Nombre + "', `apellido`='" + cE.Apellido + "', `foto`='" + MySql.Data.MySqlClient.MySqlHelper.EscapeString(cE.Foto) + "' WHERE  `id`=" + cE.Id + ";";
+            string Query = "UPDATE `clientes` SET `nombre`='" + cE.Nombre + "', `apellido`='" + cE.Apellido + "', `foto`='" + MySql.Data.MySqlClient.MySqlHelper.EscapeString(cE.foto) + "' WHERE  `id`=" + cE.Id + ";";
             MySqlCommand mySqlCommand = new MySqlCommand(Query, mySqlConnection);
             mySqlCommand.ExecuteNonQuery();
             mySqlConnection.Close();
             MessageBox.Show("Registro Actualizado!");
+
+
+        }
+        public void Eliminar(CEClientes cE)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(cadenaConexion);
+            mySqlConnection.Open();
+            string Query = "DELETE FROM `clientes` WHERE  `id`=" + cE.Id + ";";
+            MySqlCommand mySqlCommand = new MySqlCommand(Query, mySqlConnection);
+            mySqlCommand.ExecuteNonQuery();
+            mySqlConnection.Close();
+            MessageBox.Show("Registro Eliminado!");
 
 
         }

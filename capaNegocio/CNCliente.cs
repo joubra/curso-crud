@@ -41,10 +41,22 @@ namespace capaNegocio
         {
             cdcliente.crear(cE);
         }
+
+        public void editarCliente(CEClientes cE)
+        {
+         cdcliente.Editar(cE);
+        }
+        public void eliminarCliente(CEClientes cE)
+        {
+            cdcliente.Eliminar(cE);
+        }
+
         public DataSet ObtenerDatos()
         {
             return cdcliente.Listar();
+            
         }
+        
 
     }
 }
