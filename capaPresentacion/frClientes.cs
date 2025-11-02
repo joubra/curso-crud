@@ -47,6 +47,7 @@ namespace capaPresentacion
             if (!resul) return;
             cNCliente.crearCliente(cEClientes);
             MessageBox.Show("Cliente guardado con exito");
+            CargarDato();
 
 
 
@@ -56,6 +57,24 @@ namespace capaPresentacion
         public void btnEliminar_Click(object sender, EventArgs e)
         {
             cNCliente.Pruebamysqul();
+        }
+
+        private void frClientes_Load(object sender, EventArgs e)
+        {
+            CargarDato();
+
+        }
+        private void CargarDato()
+        {
+            dataGridView1.DataSource = cNCliente.ObtenerDatos().Tables["tbl"];
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            txtNombre.Text = dataGridView1.CurrentRow.Cells["Nombre"].Value.ToString();
+            txtApellido.Text = dataGridView1.CurrentRow.Cells["Apellido"].Value.ToString();
+            picFoto.Load(dataGridView1.CurrentRow.Cells["Foto"].Value.ToString());
+
         }
     }
 }

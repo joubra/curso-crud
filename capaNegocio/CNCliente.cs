@@ -2,6 +2,7 @@
 using capaDatos;
 using System.Windows.Forms;
 using System;
+using System.Data;
 
 namespace capaNegocio
 
@@ -39,6 +40,10 @@ namespace capaNegocio
         public void crearCliente(CEClientes cE)
         {
             cdcliente.crear(cE);
+        }
+        public DataSet ObtenerDatos()
+        {
+            return cdcliente.Listar();
         }
 
     }

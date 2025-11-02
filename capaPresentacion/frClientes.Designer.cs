@@ -99,6 +99,7 @@
             // 
             // txtId
             // 
+            txtId.Enabled = false;
             txtId.Location = new Point(153, 28);
             txtId.Name = "txtId";
             txtId.Size = new Size(180, 31);
@@ -167,6 +168,7 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(468, 262);
             dataGridView1.TabIndex = 12;
+            dataGridView1.CellMouseDoubleClick += dataGridView1_CellMouseDoubleClick;
             // 
             // frClientes
             // 
@@ -188,6 +190,7 @@
             Controls.Add(label1);
             Name = "frClientes";
             Text = "Clientes";
+            Load += frClientes_Load;
             ((System.ComponentModel.ISupportInitialize)txtId).EndInit();
             ((System.ComponentModel.ISupportInitialize)picFoto).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
